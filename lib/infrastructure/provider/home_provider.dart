@@ -67,20 +67,17 @@ class HomeProvider extends ChangeNotifier{
           _hasMore =false;
           _errortype = ErrorOfNetWork();
           break;
+        case ArrayWithoutElements():
+          _hasMore = false;
+          break;
         default:
           _errortype = ErrorRules();
       }
       notifyListeners();
-
-
     }, (catList) {
-      if (catList.isEmpty) {
-        _hasMore = false;
-      } else {
         _page++;
         _origincats.addAll(catList);
         _findCatByBreedSave();
-      }
     });
     notifyListeners();
   }
