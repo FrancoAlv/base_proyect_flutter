@@ -103,5 +103,4 @@ This project demonstrates how to build a scalable and maintainable Flutter appli
 
 Check out the video presentation of the app on YouTube:
 
-[![Approach to Charge](https://img.youtube.com/vi/WY4Lmve-aww/0.jpg)](https://www.youtube.com/watch?v=WY4Lmve-aww)
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WY4Lmve-aww?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
