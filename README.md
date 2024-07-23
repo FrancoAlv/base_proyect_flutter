@@ -103,6 +103,11 @@ This project demonstrates how to build a scalable and maintainable Flutter appli
 
 Check out the video presentation of the app on YouTube:
 
-<div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WY4Lmve-aww?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+
+
+
+https://github.com/user-attachments/assets/10ba2d74-6180-4afb-b861-bcf59e3c5762
+
+
+
+
