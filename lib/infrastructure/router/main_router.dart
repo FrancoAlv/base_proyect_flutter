@@ -8,7 +8,7 @@ part 'details_router.dart';
 
 sealed class MainRouter {
 
-   abstract  String path;
+  abstract  String path;
 
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
