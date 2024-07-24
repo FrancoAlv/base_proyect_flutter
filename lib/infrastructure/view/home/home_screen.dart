@@ -11,7 +11,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS ? _buildCupertinoPageScaffold(context) : _buildMaterialScaffold(context);
+    return Platform.isIOS
+        ? _buildCupertinoPageScaffold(context)
+        : _buildMaterialScaffold(context);
   }
 
   Widget _buildMaterialScaffold(BuildContext context) {
@@ -43,28 +45,34 @@ class HomeScreen extends StatelessWidget {
           children: [
             Platform.isIOS
                 ? CupertinoTextField(
-              onChanged: (breed) {
-                context.read<HomeProvider>().findCatByBreed(breed);
-              },
-              placeholder: 'Write the breed of the cat',
-              prefix: const Icon(CupertinoIcons.search),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: CupertinoColors.systemGrey),
-              ),
-            )
+                    onChanged: (breed) {
+                      context.read<HomeProvider>().findCatByBreed(breed);
+                    },
+                    placeholder: 'Write the breed of the cat',
+                    prefix: const Icon(CupertinoIcons.search),
+                    onTapOutside: (event) {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: CupertinoColors.systemGrey),
+                    ),
+                  )
                 : TextField(
-              onChanged: (breed) {
-                context.read<HomeProvider>().findCatByBreed(breed);
-              },
-              decoration: InputDecoration(
-                labelText: 'Write the breed of the cat',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
+                    onChanged: (breed) {
+                      context.read<HomeProvider>().findCatByBreed(breed);
+                    },
+                    onTapOutside: (event) {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Write the breed of the cat',
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
             const SizedBox(height: 10),
             Expanded(
               child: Consumer<HomeProvider>(
@@ -83,48 +91,48 @@ class HomeScreen extends StatelessWidget {
                     },
                     child: homeprovider.cats.isEmpty
                         ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.pets,
-                            color: Colors.grey,
-                            size: 80,
-                          ),
-                          const SizedBox(height: 20),
-                          const Text(
-                            'No data available.',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.pets,
+                                  color: Colors.grey,
+                                  size: 80,
+                                ),
+                                const SizedBox(height: 20),
+                                const Text(
+                                  'No data available.',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  'Please try searching for a different breed.',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.grey[600],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'Please try searching for a different breed.',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[600],
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    )
+                          )
                         : ListView.builder(
-                      controller: homeprovider.scrollController,
-                      itemCount: homeprovider.cats.length +
-                          (homeprovider.hasMore ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (index == homeprovider.cats.length) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-                        final catData = homeprovider.cats[index];
-                        return CatCard(catData: catData);
-                      },
-                    ),
+                            controller: homeprovider.scrollController,
+                            itemCount: homeprovider.cats.length +
+                                (homeprovider.hasMore ? 1 : 0),
+                            itemBuilder: (context, index) {
+                              if (index == homeprovider.cats.length) {
+                                return const Center(
+                                    child: CircularProgressIndicator());
+                              }
+                              final catData = homeprovider.cats[index];
+                              return CatCard(catData: catData);
+                            },
+                          ),
                   );
                 },
               ),
@@ -145,7 +153,8 @@ class HomeScreen extends StatelessWidget {
             builder: (context) => CupertinoAlertDialog(
               title: const Row(
                 children: [
-                  Icon(CupertinoIcons.exclamationmark_triangle, color: CupertinoColors.destructiveRed),
+                  Icon(CupertinoIcons.exclamationmark_triangle,
+                      color: CupertinoColors.destructiveRed),
                   SizedBox(width: 10),
                   Text('Network Error')
                 ],
