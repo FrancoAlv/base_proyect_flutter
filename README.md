@@ -56,7 +56,7 @@ Ensure you have Flutter installed on your machine. You can follow the official F
    ```
    2. Navigate to the project directory:
       ```sh
-      cd approach_to_charge
+      cd base_proyect_flutter
       ```
    3. Get the dependencies:
       ```sh
