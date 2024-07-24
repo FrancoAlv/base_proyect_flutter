@@ -52,7 +52,7 @@ Ensure you have Flutter installed on your machine. You can follow the official F
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/approach_to_charge.git
+   git clone https://github.com/FrancoAlv/base_proyect_flutter.git
    ```
    2. Navigate to the project directory:
       ```sh
